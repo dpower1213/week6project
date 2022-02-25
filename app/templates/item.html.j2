@@ -1,0 +1,23 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+Item Create
+{% endblock %}
+
+{% block content %}
+<form action="{{url_for('site.item')}}" method='POST'>
+    {{  form.hidden_tag()  }}
+    {{form.upc.label(class="form-label")}} 
+    {{form.upc(class="form-control", value=current_user.upc)}} 
+    {{form.item_name.label(class="form-label")}} 
+    {{form.item_name(class="form-control", value=current_user.item_name)}} 
+    {{form.item_desc.label(class="form-label")}} 
+    {{form.item_desc(class="form-control", value=current_user.item_desc)}} 
+    {{form.item_price.label(class="form-label")}} 
+    {{form.item_price(class="form-control", value=current_user.item_price)}}
+    
+    {{form.submit(class="btn btn-primary form-control")}}
+</form>
+                    
+                    {# <td><img src="{{poke.front_shiny}}" class="img-top" style="height:100px" style ="tb = 0"></td> #}
+                
+{% endblock %}
